@@ -15,25 +15,24 @@ public class StudentRepositoryTest {
 
 	@Test
 	public void getAll() {
-		System.out.println("getAll: " + studentRepository.findAll());
+		System.out.println("getAll: " + studentRepository.findAll_JPQL());
 	}
 
 	@Test
 	public void add() {
-		Student student = new Student("Vo Anh Hao ", "0522977010", "Long An");
-		System.out.println("Add: " + studentRepository.save(student));
+		studentRepository.addStudent_JPQL("Vo Anh Hao ", "0522977010", "Long An");
+		System.out.println("Đã add 1 student " );
 	}
 
 	@Test
 	public void update() {
-		Student student = studentRepository.findById(5).get();
-		student.setName("Hao da update");
-		System.out.println("Update: " + studentRepository.save(student));
+		studentRepository.updateStudent_JPQL(9,"update","update","update");
+		System.out.println("Update ");
 	}
 
 	@Test
 	public void delete() {
-		studentRepository.deleteById(6);
+		studentRepository.deleteStudent_JPQL(10);
 		System.out.println("Delete");
 	}
 
