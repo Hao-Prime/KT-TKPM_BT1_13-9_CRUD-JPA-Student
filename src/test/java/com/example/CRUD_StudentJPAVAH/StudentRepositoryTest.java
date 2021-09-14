@@ -10,30 +10,30 @@ import com.example.CRUD_StudentJPAVAH.repository.StudentReponsitory;
 @SpringBootTest
 public class StudentRepositoryTest {
 
+
 	@Autowired
 	private StudentReponsitory studentRepository;
 
 	@Test
 	public void getAll() {
-		System.out.println("getAll: " + studentRepository.findAll());
+		System.out.println("getAll: " + studentRepository.findAll_Native());
 	}
 
 	@Test
 	public void add() {
-		Student student = new Student("Vo Anh Hao ", "0522977010", "Long An");
-		System.out.println("Add: " + studentRepository.save(student));
+		studentRepository.addStudent_Native("Vo Anh Hao ", "0522977010", "Long An");
+		System.out.println("Add");
 	}
 
 	@Test
 	public void update() {
-		Student student = studentRepository.findById(5).get();
-		student.setName("Hao da update");
-		System.out.println("Update: " + studentRepository.save(student));
+		studentRepository.updateStudent_Native(14,"Update", "Update", "Update An");
+		System.out.println("Update:");
 	}
 
 	@Test
 	public void delete() {
-		studentRepository.deleteById(6);
+		studentRepository.deleteStudent_Native(15);
 		System.out.println("Delete");
 	}
 
